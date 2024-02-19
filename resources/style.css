@@ -35,3 +35,50 @@
     height: 100%;
     width: 100%;
 }
+
+.arrowWrap__right {
+    position: relative;
+    top: 50%;
+    left: 35px;
+}
+
+.arrowWrap__left {
+    position: relative;
+    top: 50%;
+    left: 625px;
+    @media all and (max-width: 767px) {
+        left: calc(625px / 2);
+    }
+}
+
+.arrowWrap__left,.arrowWrap__right {
+    display: grid;
+    border: none;
+    background-color: #6fa1ff;
+    --w: 30px;
+    width: var(--w);
+    height: var(--w);
+    border-radius: 50%;
+    place-items: center;
+    cursor: pointer;
+}
+
+.arrowWrap__btn.back {
+    --w: 50%;
+    width: calc(var(--w)/2);
+    height: var(--w);
+    background: white;
+    border: none;
+    translate: 0 0;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.arrowWrap__btn.next {
+    --w: 50%;
+    width: calc(var(--w)/2);
+    height: var(--w);
+    background: white;
+    border: none;
+    translate: 0 0;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+}
