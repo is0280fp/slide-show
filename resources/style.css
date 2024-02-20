@@ -82,3 +82,19 @@
     translate: 0 0;
     clip-path: polygon(0 50%, 100% 0, 100% 100%);
 }
+
+.carousel__pagination {
+    position: relative;
+    text-align: center;
+    top: 370px;
+}
+
+.carousel__paginationCircle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #b7d0ff;
+    &.target {
+        background-color: #6390e5;
+    }
+}
