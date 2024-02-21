@@ -87,6 +87,9 @@
     position: relative;
     text-align: center;
     top: 370px;
+    @media all and (max-width:767px){
+        top: 200px;
+    }
 }
 
 .carousel__paginationCircle {
@@ -96,5 +99,9 @@
     background-color: #b7d0ff;
     &.target {
         background-color: #6390e5;
+    }
+    @media all and (max-width:767px){
+        width: 25px;
+        height: 25px;
     }
 }
