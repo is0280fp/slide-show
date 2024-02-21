@@ -65,3 +65,17 @@ slideBackBtn.addEventListener('click', () => {
       changeSlide();
     }
 })
+
+const parent = document.querySelector(".carousel__pagination");
+let index = 0;
+document.querySelector(".carousel__pagination").addEventListener("click", (e) => {
+    if (e.target.classList.contains('carousel__paginationCircle')) {
+        const children = Array.from(parent.children);
+        index = children.indexOf(e.target);
+        slideCurrentIndex = index;
+        console.log(children)
+        // children.classList.remove("target");
+        // children.classList[slideCurrentIndex].add("target");
+        changeSlide();
+    }
+})
