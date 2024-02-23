@@ -66,16 +66,15 @@ slideBackBtn.addEventListener('click', () => {
     }
 })
 
-const parent = document.querySelector(".carousel__pagination");
-let index = 0;
-document.querySelector(".carousel__pagination").addEventListener("click", (e) => {
+const paginationBtnWrapper = document.querySelector(".carousel__pagination");
+let targetIndex = 0;
+paginationBtnWrapper.addEventListener("click", (e) => {
     if (e.target.classList.contains('carousel__paginationCircle')) {
-        const children = Array.from(parent.children);
-        index = children.indexOf(e.target);
-        slideCurrentIndex = index;
-        console.log(children)
-        // children.classList.remove("target");
-        // children.classList[slideCurrentIndex].add("target");
+        const paginationBtns = Array.from(paginationBtnWrapper.children);
+        targetIndex = paginationBtns.indexOf(e.target);
+        paginationBtns[slideCurrentIndex].classList.remove("target")
+        slideCurrentIndex = targetIndex;
+        paginationBtns[slideCurrentIndex].classList.add("target");
         changeSlide();
     }
 })
