@@ -46,35 +46,45 @@ function changeSlide() {
     );
 }
 
-slideNextBtn.addEventListener('click', () => {
-    if (slideCurrentIndex === slideLastIndex) {
-        slideCurrentIndex = 0;
-        changeSlide();
-    } else {
-        slideCurrentIndex++;
-        changeSlide();
-    }
-});
-
-slideBackBtn.addEventListener('click', () => {
-    if (slideCurrentIndex === 0) {
-      slideCurrentIndex = slideLastIndex;
-      changeSlide();
-    } else {
-      slideCurrentIndex--;
-      changeSlide();
-    }
-})
-
 const paginationBtnWrapper = document.querySelector(".carousel__pagination");
+const paginationBtns = Array.from(paginationBtnWrapper.children);
 let targetIndex = 0;
 paginationBtnWrapper.addEventListener("click", (e) => {
     if (e.target.classList.contains('carousel__paginationCircle')) {
-        const paginationBtns = Array.from(paginationBtnWrapper.children);
         targetIndex = paginationBtns.indexOf(e.target);
-        paginationBtns[slideCurrentIndex].classList.remove("target")
+        changeCurrentBtn(slideCurrentIndex, targetIndex, paginationBtns)
         slideCurrentIndex = targetIndex;
-        paginationBtns[slideCurrentIndex].classList.add("target");
         changeSlide();
     }
 })
+
+function changeCurrentBtn(currentIndex, targetIndex, btnArray) {
+    btnArray[currentIndex].classList.remove("target")
+    btnArray[targetIndex].classList.add("target");
+}
+
+slideNextBtn.addEventListener('click', () => {
+    prevIndex = slideCurrentIndex
+    if (slideCurrentIndex === slideLastIndex) {
+        slideCurrentIndex = 0;
+        changeSlide();
+        changeCurrentBtn(prevIndex, slideCurrentIndex, paginationBtns)
+    } else {
+        slideCurrentIndex++;
+        changeSlide();
+        changeCurrentBtn(prevIndex, slideCurrentIndex, paginationBtns)
+    }
+})
+
+slideBackBtn.addEventListener('click', () => {
+    prevIndex = slideCurrentIndex
+    if (slideCurrentIndex === 0) {
+        slideCurrentIndex = slideLastIndex;
+        changeSlide();
+        changeCurrentBtn(prevIndex, slideCurrentIndex, paginationBtns)
+    } else {
+        slideCurrentIndex--;
+        changeSlide();
+        changeCurrentBtn(prevIndex, slideCurrentIndex, paginationBtns)
+    }
+});

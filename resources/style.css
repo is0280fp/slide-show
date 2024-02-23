@@ -39,51 +39,52 @@
     width: 100%;
 }
 
-.arrowWrap__right {
+.arrowWrap__back {
     position: absolute;
     top: 50%;
     left: 10px;
 }
 
-.arrowWrap__left {
+.arrowWrap__next {
     position: absolute;
     top: 50%;
-    left: calc(600px - 30px - 10px);
+    left: 540px;
     @media all and (max-width: 767px) {
         left: calc(625px / 2);
     }
 }
 
-.arrowWrap__left,.arrowWrap__right {
+.arrowWrap__back,.arrowWrap__next {
     display: grid;
     border: none;
     background-color: #6fa1ff;
-    --w: 30px;
+    --w: 50px;
     width: var(--w);
     height: var(--w);
     border-radius: 50%;
     place-items: center;
-    cursor: pointer;
 }
 
-.arrowWrap__btn.back {
-    --w: 50%;
+.arrowWrap__btn.next {
+    --w: 80%;
     width: calc(var(--w)/2);
     height: var(--w);
     background: white;
     border: none;
     translate: 0 0;
     clip-path: polygon(0 0, 100% 50%, 0 100%);
+    cursor: pointer;
 }
 
-.arrowWrap__btn.next {
-    --w: 50%;
+.arrowWrap__btn.back {
+    --w: 80%;
     width: calc(var(--w)/2);
     height: var(--w);
     background: white;
     border: none;
     translate: 0 0;
     clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    cursor: pointer;
 }
 
 .carousel__pagination {
