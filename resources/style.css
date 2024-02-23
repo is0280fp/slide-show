@@ -11,6 +11,9 @@
 
 .carousel__area {
     position: absolute;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
     display: flex;
     height: 100%;
     @media all and (max-width: 767px) {
@@ -37,15 +40,15 @@
 }
 
 .arrowWrap__right {
-    position: relative;
+    position: absolute;
     top: 50%;
-    left: 35px;
+    left: 10px;
 }
 
 .arrowWrap__left {
-    position: relative;
+    position: absolute;
     top: 50%;
-    left: 625px;
+    left: calc(600px - 30px - 10px);
     @media all and (max-width: 767px) {
         left: calc(625px / 2);
     }
@@ -86,7 +89,7 @@
 .carousel__pagination {
     position: relative;
     text-align: center;
-    top: 370px;
+    top: 350px;
     @media all and (max-width:767px){
         top: 200px;
     }
